@@ -13,9 +13,9 @@ INSERT INTO notes(date, title, note) VALUES('11/12/22', 'Test', 'This is a test 
 
 ALTER TABLE notes ADD note_type TEXT;
 
--- CREATE TABLE users(
---     id SERIAL PRIMARY KEY,
---     first_name TEXT,
---     last_name TEXT, 
---     email TEXT
--- )
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT, 
+    email TEXT
+);
