@@ -1,5 +1,7 @@
+require 'pg'
+
 def run_sql(sql, sql_params = [])
-  db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'project2_note_app_db'})
+  db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'project2_notes_app_db'})
   results = db.exec_params(sql, sql_params)
   db.close
   results

@@ -1,0 +1,34 @@
+<h1>New List</h1>
+
+<section class="type-selection">
+
+<a href="/new-note" class="note-type">
+<span>Note</span>
+</a>
+
+<a href="/new-list" class="note-type selected">
+  <span>List</span>
+</a>
+</button>
+</section>
+
+<form action="/notes-list" method="POST">
+  <br>    
+  <label>Date: </label>
+  <input type="date" name="date">
+  <br>
+  <br>
+  <label>Title: </label>
+  <input type="text" name="title">
+  <br>
+  <br>
+  <label>List: </label>
+  <br>
+  <textarea type="text" name="note" rows="20" cols="70" class="list-input note-content">
+  </textarea>
+  <br>
+  <br>
+  <button>Add note</button>
+</form>
+
+ <button class="list-preview">Preview List</button>

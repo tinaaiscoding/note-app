@@ -1,0 +1,27 @@
+<h1>New Note</h1>
+
+<section class="type-selection">
+<a href="/new-note" class="note-type selected">Note</a>
+<a href="/new-list" class="note-type">List</a>
+
+  
+</button>
+</section>
+
+<form action="/notes-new" method="POST">
+  <br>    
+  <label>Date: </label>
+  <input type="date" name="date">
+  <br>
+  <br>
+  <label>Title: </label>
+  <input type="text" name="title">
+  <br>
+  <br>
+  <label>Note: </label>
+  <br>
+  <textarea type="text" name="note" rows="20" cols="70"></textarea>
+  <br>
+  <br>
+  <button>Add note</button>
+</form>

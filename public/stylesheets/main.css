@@ -1,0 +1,137 @@
+/****************** BODY LAYOUT *******************/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', Helvetica, sans-serif;
+}
+
+h1,
+h2 {
+  color: rgb(6, 6, 78);
+}
+
+/******************* HOME PAGE *******************/
+/* CONTROL BUTTONS  /*/
+a,
+button {
+  border: 1px solid rgb(255, 117, 191);
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  background-color: white;
+  color: rgb(227, 5, 108);
+  font-size: 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover,
+button:hover {
+  background-color: rgb(255, 66, 142);
+  color: white;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 66, 66);
+  border: 1px solid rgb(200, 0, 0);
+  color: white;
+}
+
+/* NOTES SECTION */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.note header {
+  background-color: rgba(255, 240, 251, 0.499);
+  align-items: center;
+  display: flex;
+  height: 67.813px;
+  justify-content: space-between;
+  padding: 0 1rem;
+  width: 269.328px;
+}
+
+.note h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-content {
+  white-space: pre-wrap;
+}
+
+/******************* NEW PAGE *******************/
+
+/* .btn-bg {
+  background-color: rgb(255, 219, 236);
+  border-radius: 80px;
+  height: 31px;
+  position: absolute;
+  right: 62px;
+  transition: 1s;
+  transition-property: right;
+  top: 0px;
+  width: 50px; 
+  z-index: -1;
+} */
+
+ .note-type {
+  background-color: transparent;
+  border: none;
+  border-radius: 80px;
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  width: 50px;
+}
+
+
+/*
+.note-type:hover {
+  background-color: transparent;
+  border: none;
+  border-radius: 80px;
+  color: rgb(227, 5, 108);
+} */
+
+.selected {
+  background-color: rgb(255, 66, 142);
+  border-radius: 80px;
+  color: white;
+}
+/* 
+.btn-bg + span:hover {
+  right: 8px;
+}
+*/
+
+
+/* 
+.list {
+  left: 63px;
+  transition: 1s;
+  transition-property: left;
+} */
+
+/* NOTES PAGE */
+input[type=date] {
+  font-family: 'Lato', Helvetica, sans-serif;
+}
+
+textarea {
+  font-family: 'Lato', Helvetica, sans-serif;
+  resize: none;
+
+}
+/******************* EDIT PAGE *******************/

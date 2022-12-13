@@ -1,0 +1,21 @@
+<h1>Edit note</h1>
+
+  <form action="/notes/<%= note['id'] %>" method="POST">
+    <input type="hidden" name="_method" value="put">
+
+    <label>Date: </label>
+    <input type="date" name="date" value="<%= note['date'] %>">
+    <br>
+    <br>
+    <label>Title: </label>
+    <input type="text" name="title" value="<%= note['title'] %>">
+    <br>
+    <br>
+    <label>Note: </label>
+    <br>
+    <textarea type="text" name="note" rows="20" cols="70"><%= note['note'] %>
+    </textarea>
+    <br>
+    <br>
+    <button>Edit note</button>
+  </form>
