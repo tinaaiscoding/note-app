@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'bcrypt'
 require './db/db'
 
 # CONTROLLERS
