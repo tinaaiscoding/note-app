@@ -28,8 +28,20 @@ end
 
 def favourite_note(boolean, id)
   if boolean == 't'
-  run_sql("UPDATE notes SET favourite = 't' WHERE id = $1", [id])
+    run_sql("UPDATE notes SET favourite = 't' WHERE id = $1", [id])
   else 
     run_sql("UPDATE notes SET favourite = 'f' WHERE id = $1", [id])
   end
+end
+
+def sort_by_first_created
+  run_sql('SELECT * FROM notes ORDER BY id')
+end
+
+def sort_by_last_created
+  run_sql('SELECT * FROM notes ORDER BY id DESC')
+end
+
+def sort_by_title
+  run_sql('SELECT * FROM notes ORDER BY title')
 end

@@ -15,17 +15,17 @@
       <button class="sort-btn">Sort by</button>
 
       <div class="dropdown-content"> 
-        <form action="/notes/sort-by-date-created" method="POST">
+        <form action="/sort-by-first-created" method="POST">
           <input type="hidden" name="_method" value="put">
           <button class="sort-by-item">Date created</button>
         </form>
 
-        <form action="/notes/sort-by-last-created" method="POST">
+        <form action="/sort-by-last-created" method="POST">
           <input type="hidden" name="_method" value="put">
           <button class="sort-by-item">Last created</button>
         </form>
 
-        <form action="/notes/sort-by-title" method="POST">
+        <form action="/sort-by-title" method="POST">
           <input type="hidden" name="_method" value="put">
           <button class="sort-by-item">Title</button>
         </form>
@@ -39,6 +39,8 @@
 
     <section class="note">
       <header>
+        <h2><%= note['title'] %></h2>
+        
         <% if note['favourite'] == 't' %>
           <img class="fav-heart" src="/images/favicon-32x32.png" alt="">
         <% end %>

@@ -76,11 +76,6 @@ delete '/notes/:id' do
 end
 
 #### FAVOURITE ####
-put '/notes/fav' do
-  favourite
-  redirect '/'
-end
-
 put '/notes/:id/fav' do
   id = params['id']
 
@@ -97,3 +92,31 @@ put '/notes/:id/nofav' do
   redirect '/'
 end
 
+#### SORT BY ####
+put '/sort-by-first-created' do
+  notes = sort_by_first_created()
+
+  erb :'/notes/index', locals: {
+    notes: notes
+  }
+
+
+end
+
+put '/sort-by-last-created' do
+  notes =sort_by_last_created()
+
+  erb :'/notes/index', locals: {
+    notes: notes
+  }
+
+end
+
+put  '/sort-by-title' do
+  notes = sort_by_title()
+
+  erb :'/notes/index', locals: {
+    notes: notes
+  }
+ 
+end
