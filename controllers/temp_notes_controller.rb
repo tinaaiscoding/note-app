@@ -1,59 +1,66 @@
 ################ INDEX #################
-get '/' do
+get '/temp-notes/temp-index' do
   notes = all_notes()
-  
-  erb :'/notes/index', locals: {
+
+  erb :'/temp-notes/temp-index', locals: {
     notes: notes
   }
 end
 
-################ NOTES #################
-get '/notes/new-note' do
-  erb :'/notes/new-note'
+#### 'BACK TO HOME' BTN FROM TEMP-NOTE INDEX ####
+delete '/temp-notes' do
+  delete_all_temp_note()
+  redirect '/'
 end
 
-post '/notes/new-note' do
+################ NOTES #################
+get '/temp-notes/new-note' do
+  erb :'/temp-notes/new-note'
+end
+
+post '/temp-notes/new-note' do
   date = params['date']
   title = params['title']
   note = params['note']
   note_type = "note"
-  temp_note = false
-  user_id = session['user_id'].to_i
-  
+  temp_note = true
+  user_id = 0
+
   create_note(date, title, note, note_type, temp_note, user_id)
 
-  redirect '/'
+  redirect '/temp-notes/temp-index'
 end
 
 #### LIST ####
-get '/notes/new-list' do
-  erb :'/notes/new-list'
+get '/temp-notes/new-list' do
+  erb :'/temp-notes/new-list'
 end
 
-post '/notes/new-list' do
+post '/temp-notes/new-list' do
   date = params['date']
   title = params['title']
   note = params['note']
   note_type = "list"
-  temp_note = false
-  user_id = session['user_id'].to_i
+  temp_note = true
+  user_id = 0
 
   create_note(date, title, note, note_type, temp_note, user_id)
 
-  redirect '/'
+  redirect '/temp-notes/temp-index'
 end
 
 #### EDIT ####
-get '/notes/:id/edit' do
+get '/temp-notes/:id/edit' do
   id = params['id']
+
   note = get_note(id)
 
-  erb :'notes/edit', locals: {
+  erb :'/temp-notes/edit', locals: {
     note: note
   }
 end
 
-put '/notes/:id' do
+put '/temp-notes/:id' do
   id = params['id']
   date = params['date']
   title = params['title']
@@ -61,14 +68,14 @@ put '/notes/:id' do
 
   update_note(id, date, title, note)
 
-  redirect '/'
+  redirect '/temp-notes/temp-index'
 end
 
 #### DELETE ####
-delete '/notes/:id' do
+delete '/temp-notes/:id/delete' do
   id = params['id']
 
   delete_note(id)
 
-  redirect '/'
+  redirect '/temp-notes/temp-index'
 end

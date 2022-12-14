@@ -2,8 +2,8 @@ def all_notes
   run_sql('SELECT * FROM notes ORDER BY id')
 end
 
-def create_note(date, title, note, note_type, temp_note)
-  run_sql('INSERT INTO notes(date, title, note, note_type, temp_note) VALUES($1, $2, $3, $4, $5)', [date, title, note, note_type, temp_note])
+def create_note(date, title, note, note_type, temp_note, user_id)
+  run_sql('INSERT INTO notes(date, title, note, note_type, temp_note, user_id) VALUES($1, $2, $3, $4, $5, $6)', [date, title, note, note_type, temp_note, user_id])
 end
 
 def get_note(id)

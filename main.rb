@@ -6,6 +6,7 @@ enable :sessions
 
 # CONTROLLERS
 require './controllers/notes_controller'
+require './controllers/temp_notes_controller'
 require './controllers/users_controller'
 require './controllers/sessions_controller'
 

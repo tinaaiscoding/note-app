@@ -10,7 +10,11 @@ post '/sessions' do
 
   if user && BCrypt::Password.new(user['password_digest']) == password
     session['user_id'] = user['id']
+    user_id = session['user_id']
     redirect '/'
+    erb '/', locals: {
+      user_id: user_id
+    }
   else
     erb :'sessions/new'
   end
