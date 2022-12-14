@@ -1,11 +1,13 @@
 <h1>Temporary Notes</h1>
 <p>Sign up to unlock full features!</p>
+
 <section class="controls">
   <form action="/temp-notes" method="POST">
     <input type="hidden" name="_method" value="delete">
     <button>Back to Home</button>
-    <a href="/temp-notes/new-note">New note</a>
   </form>
+  
+  <a href="/temp-notes/new-note">New note</a>
 </section>
 
 <% notes.each do |note| %>
