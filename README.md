@@ -2,7 +2,7 @@
 Project 2 with General Assembly \
 Enjoy!
 
-## :star: View my project [add link]()! :eyes:
+## :star: View my project [here](https://note-app-tina.fly.dev/)! :eyes:
 
 ## :page_with_curl: About
 
