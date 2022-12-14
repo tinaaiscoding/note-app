@@ -22,13 +22,4 @@ CREATE TABLE users(
 
 ALTER TABLE users ADD COLUMN password_digest TEXT;
 
-
-CREATE TABLE non_user_notes(
-  id SERIAL PRIMARY KEY,
-  date TEXT,
-  title TEXT,
-  note TEXT,
-  favourite BOOLEAN DEFAULT FALSE
-);
-
-ALTER TABLE non_user_notes ADD note_type TEXT;
+ALTER TABLE notes ADD COLUMN temp_note BOOLEAN DEFAULT FALSE;

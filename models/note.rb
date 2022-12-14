@@ -1,9 +1,9 @@
-def all_note
+def all_notes
   run_sql('SELECT * FROM notes ORDER BY id')
 end
 
-def create_note(date, title, note, note_type)
-  run_sql('INSERT INTO notes(date, title, note, note_type) VALUES($1, $2, $3, $4)', [date, title, note, note_type])
+def create_note(date, title, note, note_type, temp_note)
+  run_sql('INSERT INTO notes(date, title, note, note_type, temp_note) VALUES($1, $2, $3, $4, $5)', [date, title, note, note_type, temp_note])
 end
 
 def get_note(id)
@@ -16,4 +16,8 @@ end
 
 def delete_note(id)
   run_sql('DELETE FROM notes WHERE id = $1', [id])
+end
+
+def delete_all_temp_note
+  run_sql("DELETE FROM notes WHERE temp_note = 't'")
 end

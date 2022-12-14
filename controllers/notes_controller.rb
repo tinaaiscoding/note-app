@@ -1,6 +1,6 @@
 ################ INDEX #################
 get '/' do
-  notes = all_note()
+  notes = all_notes()
   
   erb :'/notes/index', locals: {
     notes: notes
@@ -17,8 +17,9 @@ post '/notes-new' do
   title = params['title']
   note = params['note']
   note_type = "note"
-
-  create_note(date, title, note, note_type)
+  temp_note = false
+  
+  create_note(date, title, note, note_type, temp_note)
 
   redirect '/'
 end
@@ -66,5 +67,59 @@ delete '/notes/:id' do
 
   delete_note(id)
 
+  redirect '/'
+end
+
+################ TEMP NOTES #################
+get '/notes/temp-index' do
+  notes = all_notes()
+
+  erb :'notes/temp-index', locals: {
+    notes: notes
+  }
+end
+
+get '/new-temp-note' do
+  erb :'notes/new-temp-note'
+end
+
+get '/new-temp-list' do
+  erb :'notes/new-temp-list'
+end
+
+post '/temp-notes-new' do
+  date = params['date']
+  title = params['title']
+  note = params['note']
+  note_type = "note"
+  temp_note = true
+
+  create_note(date, title, note, note_type, temp_note)
+
+  redirect '/notes/temp-index'
+end
+
+get '/notes/:id/edit-temp-note' do
+  id = params['id']
+  date = params['date']
+  title = params['title']
+  note = params['note']
+
+  update_note(id, date, title, note)
+
+  redirect '/notes/temp-index'
+end
+
+delete '/notes/:id/delete-temp-note' do
+  id = params['id']
+
+  delete_note(id)
+
+  redirect '/notes/temp-index'
+end
+
+#### 'BACK TO HOME' BTN FROM TEMP NOTE DASHBOARD ####
+delete '/temp-notes' do
+  delete_all_temp_note
   redirect '/'
 end

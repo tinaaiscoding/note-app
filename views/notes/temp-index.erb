@@ -1,0 +1,32 @@
+<h1>Temporary Notes</h1>
+
+<section class="controls">
+  <form action="/temp-notes" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <button>Back to Home</button>
+    <a href="/new-temp-note">New note</a>
+  </form>
+</section>
+
+<% notes.each do |note| %>
+  <% if note['note_type'] == 'note' && note['temp_note'] == 't' %>
+    <section class="note">
+      <header>
+        <h2><%= note['title'] %></h2>
+
+        <section class="controls">
+          <a href="/notes/<%= note['id'] %>/edit-temp-note">Edit</a>
+          
+          <form action="/notes/<%= note['id'] %>/delete-temp-note" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <button class="delete-btn">Delete</button>
+          </form>
+        </section>
+      </header>
+
+      <p><%= note['date'] %></p>
+      <p class="note-content"><%= note['note'] %></p>
+
+    </section>
+  <% end %>
+<% end %>

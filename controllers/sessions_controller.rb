@@ -17,8 +17,7 @@ post '/sessions' do
 end
 
 delete '/sessions' do
-  # logs the user out
   session['user_id'] = nil
-
+  
   redirect '/'
 end
