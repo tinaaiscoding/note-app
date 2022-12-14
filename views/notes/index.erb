@@ -15,19 +15,19 @@
       <button class="sort-btn">Sort by</button>
 
       <div class="dropdown-content"> 
-        <form action="/temp-notes" method="POST">
+        <form action="/notes/sort-by-date-created" method="POST">
           <input type="hidden" name="_method" value="put">
-          <button>Date created</button>
+          <button class="sort-by-item">Date created</button>
         </form>
 
-        <form action="/temp-notes" method="POST">
+        <form action="/notes/sort-by-last-created" method="POST">
           <input type="hidden" name="_method" value="put">
-          <button>Latest created</button>
+          <button class="sort-by-item">Last created</button>
         </form>
 
-        <form action="/temp-notes" method="POST">
+        <form action="/notes/sort-by-title" method="POST">
           <input type="hidden" name="_method" value="put">
-          <button>Title</button>
+          <button class="sort-by-item">Title</button>
         </form>
       </div>
     </div>
