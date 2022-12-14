@@ -1,28 +1,37 @@
-<h1>Notes</h1>
+  <h1>Notes</h1>
+  <h4>NOTES ARE NOT SAVED UNLESS YOU HAVE AN ACCOUNT</h4>
 
-<% if logged_in? %>
-  <h3><%= current_user['first_name'] %>'s Notes</h3>
-  
+<% if new_session? %>
+  <section class="controls">
+    <form action="/non_users_sessions" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <button>Back</button>
+    </form>
+
+    <a href="/non-users/new-note">Add note</a>
+  </section>
+<% else %>
   <section class="controls">
     <form action="/sessions" method="POST">
       <input type="hidden" name="_method" value="delete">
-      <button>Log out</button>
+      <button>Back</button>
     </form>
     
-    <a href="/notes/new">Add note</a>
+    <a href="/non-users/new-note">Add note</a>
   </section>
   
-  <section class="notes">
-    <% notes.each do |note| %>
+  <section class="notes non-user">
+    <% non_user_notes.each do |note| %>
       <% if note['note_type'] == 'note' %>
-        <section class="note">
+        <section class="note non-user">
           <header>
+    
             <h2><%= note['title'] %></h2>
 
             <section class="controls">
-              <a href="/notes/<%= note['id'] %>/edit">Edit</a>
+              <a href="/non-users-notes/<%= note['id'] %>/edit">Edit</a>
               
-              <form action="/notes/<%= note['id'] %>" method="POST">
+              <form action="/non-users-notes/<%= note['id'] %>" method="POST">
                 <input type="hidden" name="_method" value="delete">
                 <button class="delete-btn">Delete</button>
               </form>
@@ -30,18 +39,18 @@
           </header>
 
           <p><%= note['date'] %></p>
-          <p class="note-content"><%= note['note'] %></p>
+          <p class="note-content"><%= note['note']%></p>
 
         </section>
-      <% elsif  note['note_type'] == 'list' %>
+      <% elsif note['note_type'] == 'list' %>
         <section class="note list">
           <header>
             <h2><%= note['title'] %></h2>
 
             <section class="controls">
-              <a href="/notes/<%= note['id'] %>/edit">Edit</a>
+              <a href="/non-users-notes/<%= note['id'] %>/edit">Edit</a>
               
-              <form action="/notes/<%= note['id'] %>" method="POST">
+              <form action="/non-users-notes/<%= note['id'] %>" method="POST">
                 <input type="hidden" name="_method" value="delete">
                 <button class="delete-btn">Delete</button>
               </form>
@@ -50,13 +59,8 @@
 
           <p><%= note['date'] %></p>
           <p class="note-content"><%= note['note'] %></p>
-
         </section>
       <% end %>
     <% end %>
   </section>
-<% else %>
-  <a href="/users/new">Sign Up</a>
-  <a href="/sessions/new">Log In</a>
-  <a href="/sessions/new-non-users">Start without account</a>
- <% end %>
+<% end %>

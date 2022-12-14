@@ -11,5 +11,14 @@ post '/sessions' do
   if user && BCrypt::Password.new(user['password_digest']) == password
     session['user_id'] = user['id']
     redirect '/'
+  else
+    erb :'sessions/new'
   end
+end
+
+delete '/sessions' do
+  # logs the user out
+  session['user_id'] = nil
+
+  redirect '/'
 end
