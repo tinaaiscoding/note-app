@@ -26,7 +26,7 @@ post '/temp-notes/new-note' do
   temp_note = true
   user_id = 0
 
-  create_note(date, title, note, note_type, temp_note, user_id)
+  create_temp_note(date, title, note, note_type, temp_note, user_id)
 
   redirect '/temp-notes/temp-index'
 end
@@ -44,7 +44,7 @@ post '/temp-notes/new-list' do
   temp_note = true
   user_id = 0
 
-  create_note(date, title, note, note_type, temp_note, user_id)
+  create_temp_note(date, title, note, note_type, temp_note, user_id)
 
   redirect '/temp-notes/temp-index'
 end

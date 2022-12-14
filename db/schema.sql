@@ -21,3 +21,5 @@ CREATE TABLE users(
     email TEXT,
     password_digest TEXT
 );
+
+-- ADD TO SERVER DATABASE

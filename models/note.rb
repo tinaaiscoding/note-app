@@ -6,6 +6,10 @@ def create_note(date, title, note, note_type, temp_note, user_id, favourite)
   run_sql('INSERT INTO notes(date, title, note, note_type, temp_note, user_id, favourite) VALUES($1, $2, $3, $4, $5, $6, $7)', [date, title, note, note_type, temp_note, user_id, favourite])
 end
 
+def create_temp_note(date, title, note, note_type, temp_note, user_id)
+  run_sql('INSERT INTO notes(date, title, note, note_type, temp_note, user_id) VALUES($1, $2, $3, $4, $5, $6)', [date, title, note, note_type, temp_note, user_id])
+end
+
 def get_note(id)
   run_sql('SELECT * FROM notes WHERE id = $1', [id])[0]
 end
