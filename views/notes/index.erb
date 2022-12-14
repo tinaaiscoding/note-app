@@ -15,39 +15,73 @@
   <section class="notes">
     <% notes.each do |note| %>
       <% if note['note_type'] == 'note' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] %>
+
         <section class="note">
           <header>
-            <h2><%= note['title'] %></h2>
+          <h2><%= note['title'] %></h2>
 
-            <section class="controls">
+          <% if note['favourite'] == 't' %>
+            <img class="fav-heart" src="/images/favicon-32x32.png" alt="">
+          <% end %>
+          </header>
+
+          <section class="controls">
               <a href="/notes/<%= note['id'] %>/edit">Edit</a>
               
               <form action="/notes/<%= note['id'] %>" method="POST">
                 <input type="hidden" name="_method" value="delete">
                 <button class="delete-btn">Delete</button>
               </form>
+
+              <% if note['favourite'] == 't' %>
+                <form action="/notes/<%= note['id'] %>/nofav" method="POST">
+                  <input type="hidden" name="_method" value="put">
+                  <button class="fav-btn">NO FAV</button>
+                </form>
+              <% else %>
+                <form action="/notes/<%= note['id'] %>/fav" method="POST">
+                  <input type="hidden" name="_method" value="put">
+                  <button class="fav-btn">FAV</button>
+                </form>
+              <% end %>
             </section>
-          </header>
 
           <p><%= note['date'] %></p>
           <p class="note-content"><%= note['note'] %></p>
 
         </section>
       <% elsif  note['note_type'] == 'list' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] %>
+
         <section class="note">
           <header>
             <h2><%= note['title'] %></h2>
 
-            <section class="controls">
-              <a href="/notes/<%= note['id'] %>/edit">Edit</a>
-              
-              <form action="/notes/<%= note['id'] %>" method="POST">
-                <input type="hidden" name="_method" value="delete">
-                <button class="delete-btn">Delete</button>
-              </form>
-            </section>
+            <% if note['favourite'] == 't' %>
+              <img class="fav-heart" src="/images/favicon-32x32.png" alt="">
+            <% end %>
           </header>
 
+          <section class="controls">
+            <a href="/notes/<%= note['id'] %>/edit">Edit</a>
+            
+            <form action="/notes/<%= note['id'] %>" method="POST">
+              <input type="hidden" name="_method" value="delete">
+              <button>Delete</button>
+            </form>
+
+            <% if note['favourite'] == 't' %>
+              <form action="/notes/<%= note['id'] %>/nofav" method="POST">
+                <input type="hidden" name="_method" value="put">
+                <button class="fav-btn">NO FAV</button>
+              </form>
+            <% else %>
+              <form action="/notes/<%= note['id'] %>/fav" method="POST">
+                <input type="hidden" name="_method" value="put">
+                <button class="fav-btn">FAV</button>
+              </form>
+            <% end %>
+          </section>
+        
           <p><%= note['date'] %></p>
           <input type="checkbox" name="" id=""><p class="note-content"><%= note['note'] %></p>
 

@@ -44,6 +44,10 @@ button:hover {
 }
 
 /* NOTES SECTION */
+.fav-heart {
+  height: 20px;
+  width: 20px;
+}
 .notes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

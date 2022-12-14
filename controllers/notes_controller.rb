@@ -19,8 +19,9 @@ post '/notes/new-note' do
   note_type = "note"
   temp_note = false
   user_id = session['user_id'].to_i
+  favourite = params['favourite']
   
-  create_note(date, title, note, note_type, temp_note, user_id)
+  create_note(date, title, note, note_type, temp_note, user_id, favourite)
 
   redirect '/'
 end
@@ -37,8 +38,9 @@ post '/notes/new-list' do
   note_type = "list"
   temp_note = false
   user_id = session['user_id'].to_i
+  favourite = params['favourite']
 
-  create_note(date, title, note, note_type, temp_note, user_id)
+  create_note(date, title, note, note_type, temp_note, user_id, favourite)
 
   redirect '/'
 end
@@ -72,3 +74,26 @@ delete '/notes/:id' do
 
   redirect '/'
 end
+
+#### FAVOURITE ####
+put '/notes/fav' do
+  favourite
+  redirect '/'
+end
+
+put '/notes/:id/fav' do
+  id = params['id']
+
+  favourite_note('t' ,id)
+
+  redirect '/'
+end
+
+put '/notes/:id/nofav' do
+  id = params['id']
+
+  favourite_note('f' ,id)
+
+  redirect '/'
+end
+
