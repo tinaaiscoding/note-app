@@ -1,6 +1,5 @@
 # Note App
-Project 2 with General Assembly \
-Enjoy!
+Project 2 with General Assembly
 
 ## :star: View my project [here](https://note-app-tina.fly.dev/)! :eyes:
 
@@ -20,5 +19,25 @@ Users can search for notes. Sorting can be done by dragging and dropping the not
 - [Flow diagram](./planning/flow_diagram.pdf)
 - [Wireframing](./planning/wireframing.pdf)
 
+## :rocket: Cool features I used
+- [Gon Sinatra Gem](https://github.com/gazay/gon-sinatra)
+  \
+  This was really useful for accessing ruby variables in my javascript file
+- [Calendar](https://www.codingnepalweb.com/dynamic-calendar-html-css-javascript/)
+  \
+  This is the calendar feature I added in my app
+- Ruby, Javascript, CSS, HTML
+- Sinatra Library
 
-*To be continued...*
+## :warning: Bugs to fix :bug:
+- Calendar dots disappear when you change months
+- Calendar dots only appear for the current month
+- Refactor code!!!
+
+## 😮‍💨 Lessons learnt 
+- Don't spend to long on a problem if you're stuck. Asking for help earlier on can save you lots of time!
+
+ ## :white_check_mark: Future features
+ - Tailwind CSS framework
+ - Add notes and list on Calendar page
+ - Drag and drop notes
