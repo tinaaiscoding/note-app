@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Lato', Helvetica, sans-serif;
+  color: rgb(6, 6, 78);
 }
 
 h1,
@@ -180,4 +181,16 @@ textarea {
 
 .visible {
   display: block;
+}
+
+/* LIST */
+.list-item {
+  display: inline-block;
+  margin: 0 auto 5px;
+}
+
+.completed-item {
+  color: rgb(174, 174, 208);
+  text-decoration: line-through;
+  text-decoration-color: rgb(112 112 143);
 }

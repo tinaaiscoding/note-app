@@ -11,3 +11,16 @@ window.addEventListener('click', (event) => {
     dropdownContent.classList.remove('visible');
 }
 });
+
+// LIST CHECKBOX
+const allListCheckbox = document.querySelectorAll('.list-checkbox');
+
+allListCheckbox.forEach(checkbox => {
+  checkbox.addEventListener('click', () => {
+    item = checkbox.nextElementSibling
+    item.classList.toggle('completed-item')
+    // items.forEach(item => {
+    //   item.classList.add('.completed-item')
+    // });
+  })
+});

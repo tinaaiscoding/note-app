@@ -119,11 +119,10 @@
 
         <% if note['note'].include? "\r\n" %>
           <% note['note'].split("\r\n").each do |item| %>
-            <input type="checkbox"> <%= item %>
+            <input class="list-checkbox" type="checkbox">
+            <p class="list-item"><%= item %></p>
             <br>
           <% end %>
-        <% else %>
-        <p>didnt work</p>
         <% end %>
 
       </section>
@@ -135,4 +134,3 @@
   <a href="/sessions/new">Log In</a>  
   <a href="/temp-notes/new-note">New note</a>
 <% end %>
-
