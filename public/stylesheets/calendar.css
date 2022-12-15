@@ -140,3 +140,16 @@ header .current-date{
 .days li:not(.active):hover::before{
   background: rgb(241, 241, 255);
 }
+
+.calendar-dot-blue {
+  position: absolute;
+  right: 140px;
+  display: inline-block;
+}
+
+.calendar-dot-orange {
+  position: absolute;
+  top: 20px;
+  right: 140px;
+  display: inline-block;
+}

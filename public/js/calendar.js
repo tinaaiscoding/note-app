@@ -81,25 +81,49 @@ prevNextIcon.forEach((icon) => {
 const allDayLi = document.querySelectorAll('.days li');
 
 allDayLi.forEach((li) => {
-  const date = li.textContent;
-  
   gon.notes.forEach((note) => {
     const newPara = document.createElement('p');
+    const newPara2 = document.createElement('p');
 
     if (
       note['date'].length > 1 &&
       note['note_type'] === 'note' &&
       note['date'].slice(-2) == li.textContent
     ) {
-        newPara.textContent = '🔵'
-        li.appendChild(newPara);
-    } else if (
+      console.log('blue');
+      newPara.classList.add('calendar-dot-blue');
+      newPara.textContent = '🔵';
+      li.appendChild(newPara);
+    }
+  });
+});
+
+allDayLi.forEach((li) => {
+  gon.notes.forEach((note) => {
+    const newPara2 = document.createElement('p');
+    // console.log('a');
+
+    //     console.log(note['date'].length > 1);
+    //     console.log('b');
+    //     console.log(note['note_type'] === 'list');
+    //     console.log('c');
+    //     console.log(note['date'].slice(-2) );
+    //     console.log('d');
+    //      console.log(li.textContent);
+
+    //      console.log('e');
+    //      console.log(li.textContent.slice(0, 2));
+    //      console.log(note['date'].slice(-2) === li.textContent.slice(0, 2));
+
+    if (
       note['date'].length > 1 &&
       note['note_type'] === 'list' &&
-      note['date'].slice(-2) == li.textContent
+      note['date'].slice(-2) == li.textContent.slice(0, 2)
     ) {
-        newPara.textContent = '🟠'
-        li.appendChild(newPara);
+      console.log('ORANGE');
+      newPara2.classList.add('calendar-dot-orange');
+      newPara2.textContent = '🟠';
+      li.appendChild(newPara2);
     }
   });
 });
