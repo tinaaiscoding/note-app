@@ -8,6 +8,11 @@ const logInBtn = document.querySelector('.log-in-btn');
 const logInModal = document.querySelector('#log-in-modal');
 const cancelLogInBtn = logInModal.querySelector('.btn-passive');
 
+const logOutBtn = document.querySelector('.logging-out-btn');
+const logOutModal = document.querySelector('#log-out-modal');
+const cancelLogOutBtn = logInModal.querySelector('.btn-passive');
+
+console.log(logOutModal);
 // BACKDROP
 function backDropOn() {
   backdrop.classList.add('visible');
@@ -35,6 +40,12 @@ function showLogInModal() {
   backDropOn();
 }
 
+// LOG OUT MODAL
+function showLogOutModal() {
+  logOutModal.classList.add('visible');
+  backDropOn();
+}
+
 // CANCEL (CLOSE) MODAL
 function cancelModalHandler() {
   removeBackdropHandler();
@@ -48,3 +59,6 @@ cancelSignUpBtn.addEventListener('click', cancelModalHandler);
 
 logInBtn.addEventListener('click', showLogInModal);
 cancelLogInBtn.addEventListener('click', cancelModalHandler);
+
+logOutBtn.addEventListener('click', showLogOutModal);
+cancelLogOutBtn.addEventListener('click', cancelModalHandler);
