@@ -1,7 +1,3 @@
-get '/sessions/new' do
-  erb :'sessions/new'
-end
-
 post '/sessions' do
   email = params['email']
   password = params['password']
@@ -16,7 +12,7 @@ post '/sessions' do
       user_id: user_id
     }
   else
-    erb :'sessions/new'
+    erb :'/notes/index'
   end
 end
 

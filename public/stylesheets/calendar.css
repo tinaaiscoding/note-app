@@ -142,14 +142,16 @@ header .current-date{
 }
 
 .calendar-dot-blue {
+  color: rgb(5, 112, 227);;
   position: absolute;
-  right: 140px;
+  right: 148px;
   display: inline-block;
 }
 
-.calendar-dot-orange {
+.calendar-dot-pink {
+  color: rgb(227, 5, 108);;
   position: absolute;
-  top: 20px;
-  right: 140px;
+  top: 17px;
+  right: 148px;
   display: inline-block;
 }

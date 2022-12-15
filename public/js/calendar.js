@@ -92,7 +92,7 @@ allDayLi.forEach((li) => {
     ) {
       console.log('blue');
       newPara.classList.add('calendar-dot-blue');
-      newPara.textContent = '🔵';
+      newPara.textContent = '●';
       li.appendChild(newPara);
     }
   });
@@ -121,8 +121,8 @@ allDayLi.forEach((li) => {
       note['date'].slice(-2) == li.textContent.slice(0, 2)
     ) {
       console.log('ORANGE');
-      newPara2.classList.add('calendar-dot-orange');
-      newPara2.textContent = '🟠';
+      newPara2.classList.add('calendar-dot-pink');
+      newPara2.textContent = '●';
       li.appendChild(newPara2);
     }
   });

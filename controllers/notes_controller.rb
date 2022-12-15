@@ -67,6 +67,13 @@ put '/notes/:id' do
 
   update_note(id, date, title, note)
 
+  erb :'notes/edit', locals: {
+    note: note
+  }
+  redirect '/'
+end
+
+delete '/notes/:id' do
   redirect '/'
 end
 

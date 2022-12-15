@@ -1,5 +1,5 @@
 get '/users/new' do
-  erb :'/users/new'
+  erb :'/notes/index'
 end
 
 post '/users' do

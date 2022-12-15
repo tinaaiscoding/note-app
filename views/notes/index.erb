@@ -130,7 +130,65 @@
     <% end %>
   </section>
 <% else %>
-  <a href="/users/new">Sign Up</a>
-  <a href="/sessions/new">Log In</a>  
-  <a href="/temp-notes/new-note">New note</a>
+  <button class="sign-up-btn">Sign Up</button>
+  <button class="log-in-btn">Log In</button> 
+  <a href="/temp-notes/new-note">New Note</a>
 <% end %>
+
+
+<div id="backdrop"></div>
+    <div class="modal" id="sign-up-modal">
+      <div class="modal-content">
+        <h2 class="modal-title">Sign Up</h2>
+  
+        <form action="/users" method="POST">
+          <label for="">First Name: </label>
+          <br>
+          <input type="text" name="first_name">
+          <br>
+          <br>
+          <label for="">Last Name: </label>
+          <br>
+          <input type="text" name="last_name">
+          <br>
+          <br>
+          <label for="">Email: </label>
+          <br>
+          <input type="text" name="email">
+          <br>
+          <br>
+          <label for="">Password: </label>
+          <br>
+          <input type="password" name="password">
+          <br>
+          <div class="modal-actions">
+            <button class="modal-action-btn">Sign Up</button>
+          </div>
+        </form>
+
+        <button class="modal-action-btn btn-passive">Cancel</button>
+      </div>
+    </div>
+
+    <div class="modal" id="log-in-modal">
+      <div class="modal-content">
+        <h2 class="modal-title">Log In</h2>
+
+        <form action="/sessions" method="POST">
+          <label for="">Email: </label>
+          <br>
+          <input type="text" name="email">
+          <br>
+          <br>
+          <label for="">Password: </label>
+          <br>
+          <input type="password" name="password">
+          <br>
+          <div class="modal-actions">
+            <button class="modal-action-btn">Log In</button>
+          </div>
+        </form>
+
+        <button class="modal-action-btn btn-passive">Cancel</button>
+      </div>
+    </div>

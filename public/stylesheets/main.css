@@ -15,8 +15,12 @@ h2 {
   color: rgb(6, 6, 78);
 }
 
+.visible {
+  display: block;
+}
+
 /******************* HOME PAGE *******************/
-/* CONTROL BUTTONS  /*/
+/* CONTROL BUTTONS */
 a,
 button {
   border: 1px solid rgb(255, 117, 191);
@@ -78,22 +82,8 @@ button:hover {
   white-space: pre-wrap;
 }
 
-/******************* NEW PAGE *******************/
-
-/* .btn-bg {
-  background-color: rgb(255, 219, 236);
-  border-radius: 80px;
-  height: 31px;
-  position: absolute;
-  right: 62px;
-  transition: 1s;
-  transition-property: right;
-  top: 0px;
-  width: 50px; 
-  z-index: -1;
-} */
-
- .note-type {
+/******************* NOTES DASHBOARD *******************/
+.note-type {
   background-color: transparent;
   border: none;
   border-radius: 80px;
@@ -103,43 +93,20 @@ button:hover {
   width: 50px;
 }
 
-
-/*
-.note-type:hover {
-  background-color: transparent;
-  border: none;
-  border-radius: 80px;
-  color: rgb(227, 5, 108);
-} */
-
 .selected {
   background-color: rgb(255, 66, 142);
   border-radius: 80px;
   color: white;
 }
-/* 
-.btn-bg + span:hover {
-  right: 8px;
-}
-*/
 
-
-/* 
-.list {
-  left: 63px;
-  transition: 1s;
-  transition-property: left;
-} */
-
-/* NOTES PAGE */
-input[type=date] {
+/* NEW/EDIT NOTES PAGE */
+input[type='date'] {
   font-family: 'Lato', Helvetica, sans-serif;
 }
 
 textarea {
   font-family: 'Lato', Helvetica, sans-serif;
   resize: none;
-
 }
 
 /******************* SORT BY DROPDOWN *******************/
@@ -159,10 +126,10 @@ textarea {
 
 .dropdown-content {
   background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   display: none;
   position: absolute;
-  overflow:auto;
+  overflow: auto;
   text-align: center;
   width: 106px;
   z-index: 1;
@@ -184,11 +151,7 @@ textarea {
   background-color: rgb(255, 236, 247);
 }
 
-.visible {
-  display: block;
-}
-
-/* LIST */
+/******************* LIST /*******************/
 .list-item {
   display: inline-block;
   margin: 0 auto 5px;
