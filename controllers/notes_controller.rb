@@ -113,12 +113,11 @@ put '/sort-by-creation' do
 end
 
 put  '/sort-by-date' do
-  "Sort by date not created yet"
-  # notes = sort_by_date()
+  notes = sort_by_date()
 
-  # erb :'/notes/index', locals: {
-  #   notes: notes
-  # }
+  erb :'/notes/index', locals: {
+    notes: notes
+  }
 end
 
 put '/sort-by-favourite' do

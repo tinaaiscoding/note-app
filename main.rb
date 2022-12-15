@@ -12,6 +12,7 @@ require './controllers/temp_notes_controller'
 require './controllers/users_controller'
 require './controllers/calendar_controller'
 require './controllers/sessions_controller'
+require './controllers/credit_controller'
 
 # MODELS
 

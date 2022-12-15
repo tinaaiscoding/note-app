@@ -1,5 +1,6 @@
 <h1>Notes</h1>
 
+
 <% if logged_in?%>
   <h3><%= current_user['first_name'] %>'s Notes</h3>
   
@@ -58,23 +59,23 @@
         <% end %>
       </header>
 
-      <section class="controls">
-        <a href="/notes/<%= note['id'] %>/edit">Edit</a>
+      <section class="note-controls">
+        <a href="/notes/<%= note['id'] %>/edit"><img class="btn-icon" src="/images/editing.png" alt=""></a>
         
         <form action="/notes/<%= note['id'] %>" method="POST">
           <input type="hidden" name="_method" value="delete">
-          <button class="delete-btn">Delete</button>
+          <button class="delete-btn"><img class="btn-icon" src="/images/delete.png" alt=""></button>
         </form>
 
         <% if note['favourite'] == 't' %>
           <form action="/notes/<%= note['id'] %>/nofav" method="POST">
             <input type="hidden" name="_method" value="put">
-            <button class="fav-btn">NO FAV</button>
+            <button class="fav-btn"><img class="btn-icon" src="/images/no-fav.png" alt=""></button>
           </form>
         <% else %>
           <form action="/notes/<%= note['id'] %>/fav" method="POST">
             <input type="hidden" name="_method" value="put">
-            <button class="fav-btn">FAV</button>
+            <button class="fav-btn"><img class="btn-icon" src="/images/fav.png" alt=""></button>
           </form>
         <% end %>
       </section>
@@ -94,23 +95,23 @@
           <% end %>
         </header>
 
-        <section class="controls">
-          <a href="/notes/<%= note['id'] %>/edit">Edit</a>
+        <section class="note-controls">
+          <a href="/notes/<%= note['id'] %>/edit"><img class="btn-icon" src="/images/editing.png" alt=""></a>
           
           <form action="/notes/<%= note['id'] %>" method="POST">
             <input type="hidden" name="_method" value="delete">
-            <button>Delete</button>
+            <button><img class="btn-icon" src="/images/delete.png" alt=""></button>
           </form>
 
           <% if note['favourite'] == 't' %>
             <form action="/notes/<%= note['id'] %>/nofav" method="POST">
               <input type="hidden" name="_method" value="put">
-              <button class="fav-btn">NO FAV</button>
+              <button class="fav-btn"><img class="btn-icon" src="/images/no-fav.png" alt=""></button>
             </form>
           <% else %>
             <form action="/notes/<%= note['id'] %>/fav" method="POST">
               <input type="hidden" name="_method" value="put">
-              <button class="fav-btn">FAV</button>
+              <button class="fav-btn"><img class="btn-icon" src="/images/fav.png" alt=""></button>
             </form>
           <% end %>
         </section>
