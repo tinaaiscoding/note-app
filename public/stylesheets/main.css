@@ -5,32 +5,17 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Lato', Helvetica, sans-serif;
-  color: rgb(6, 6, 78);
-}
-
-h1,
-h2 {
-  color: rgb(6, 6, 78);
-}
-
-.visible {
-  display: block;
-}
-
-/******************* HOME PAGE *******************/
-/* CONTROL BUTTONS */
 a,
 button {
+  background-color: white;
   border: 1px solid rgb(255, 117, 191);
   border-radius: 8px;
-  padding: 0.25rem 0.5rem;
-  background-color: white;
   color: rgb(227, 5, 108);
-  font-size: 0.8rem;
-  text-decoration: none;
   cursor: pointer;
+  font-size: 0.8rem;
+  margin: 0 5px;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
 }
 
 a:hover,
@@ -39,6 +24,24 @@ button:hover {
   color: white;
 }
 
+body {
+  background-color: #FFF5F9;
+  font-family: 'Lato', Helvetica, sans-serif;
+  color: rgb(6, 6, 78);
+}
+
+h1,
+h2 {
+  color: rgb(6, 6, 78);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.visible {
+  display: block;
+}
+
+/******************* HOME PAGE *******************/
+/* CONTROL BUTTONS */
 .controls {
   display: flex;
   gap: 0.5rem;
@@ -50,11 +53,51 @@ button:hover {
   color: white;
 }
 
+.heading-text {
+  font-size: 4.4rem;
+  overflow: auto;
+  width: 100%;
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 95vh;
+}
+
+.index-div-1 {
+  overflow: visible;
+  margin: 80px 0 0 222px;
+}
+
+.logo {
+  width: 80px;
+}
+
+.index-div-1 .links {
+  color: #eab5ca;
+  padding-left: 0px;
+  text-decoration: none;
+}
+
+.pencil {
+  margin-top: 45px;
+  margin-left: 8px;
+  width: 80%;
+}
+
+/******************* NOTES DASHBOARD *******************/
 /* NOTES SECTION */
+.btn-icon{
+  height: 15px;
+  width: 15px;
+}
+
 .fav-heart {
   height: 20px;
   width: 20px;
 }
+
 .notes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -63,13 +106,15 @@ button:hover {
 }
 
 .note {
+  background-color: #fdfdf9;
+  box-shadow: 2px 2px 5px #b0b0b0;
   height: 300px;
   width: 300px;
-  box-shadow: 2px 2px 5px #b0b0b0;
 }
 
 .note header {
-  background-color: rgba(255, 240, 251, 0.499);
+  background-color: rgb(241 249 255 / 50%);
+  border-bottom: 1px solid rgb(78, 81, 149);
   align-items: center;
   display: flex;
   height: 68px;
@@ -88,19 +133,20 @@ button:hover {
   white-space: pre-wrap;
 }
 
-/******************* NOTES DASHBOARD *******************/
-.btn-icon{
-  height: 15px;
-  width: 15px;
-}
 
 .note-controls {
   border-top: 1px solid rgb(78, 81, 149);
-  border-bottom: 1px solid rgb(78, 81, 149);
+  bottom: 0;
   display: flex;
   gap: 0.5rem;
+  position: relative;
   justify-content: center;
   padding: 4px 0;
+}
+
+.note-text {
+  height: 175px;
+  padding: 10px 14px;
 }
 
 .note-type {
@@ -113,13 +159,14 @@ button:hover {
   width: 50px;
 }
 
+
 .selected {
   background-color: rgb(255, 66, 142);
   border-radius: 80px;
   color: white;
 }
 
-/* NEW/EDIT NOTES PAGE */
+/******************* NEW/EDIT NOTES PAGE *******************/
 input[type='date'] {
   font-family: 'Lato', Helvetica, sans-serif;
 }
@@ -186,20 +233,18 @@ textarea {
 }
 
 /******************* FOOTER *******************/
-footer {
-  position: absolute;
-  bottom: 0;
-  margin: 10px;
+.footer {
+  padding: 10px;
 }
 .links {
+  background-color: #FFF5F9;;
   border: none;
   border-radius: 0;
   color: rgb(133, 127, 159);
-  
   text-decoration: underline;
 }
 
 .links:hover {
   background-color: rgba(255, 255, 255, 0);
-  color: rgb(85, 61, 189);
+  color: rgb(58, 54, 162);
 }

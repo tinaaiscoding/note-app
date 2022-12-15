@@ -20,10 +20,9 @@
 .modal {
   position: fixed;
   z-index: 100;
-  background: white;
+  background: #FFF5F9;
   border-radius: 10px;
   width: 80%;
-  top: 10vh;
   left: 10%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   display: none;
@@ -41,6 +40,11 @@
   background: rgb(6, 6, 78);
   color: white;
   border-radius: 10px 10px 0 0;
+}
+
+input[type=text], input[type=password] {
+  background: #FFF5F9;
+  border: 1px solid #8388a9;
 }
 
 /* .modal .modal-content {
@@ -61,17 +65,17 @@
 }
 
 #sign-up-modal {
-  left: 0;
-  margin: 0 auto;
-  position: relative;
+  top: 160px;
+  left: 500px;
+  position: absolute;
   text-align: center;
   width: 400px;
 }
 
 #log-in-modal {
-  left: 0;
-  margin:  auto;
-  position: relative;
+  top: 160px;
+  left: 576px;
+  position: absolute;
   text-align: center;
   width: 300px;
 }

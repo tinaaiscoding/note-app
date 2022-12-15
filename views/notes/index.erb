@@ -1,195 +1,77 @@
-<h1>Notes</h1>
 
 
-<% if logged_in?%>
-  <h3><%= current_user['first_name'] %>'s Notes</h3>
-  
-  <section class="controls">
-    <form action="/sessions" method="POST">
-      <input type="hidden" name="_method" value="delete">
-      <button>Log out</button>
-    </form>
-    
-    <a href="/notes/new-note">New note</a>
+<section class="index-grid">
+  <div class="index-div-1">
+    <img class="logo" src="/images/logo-pink.png" alt="">
+    <h1 class="heading-text">ALL YOUR NOTES IN ONE PLACE</h1>
+    <br>
+    <br>
+    <button class="sign-up-btn">Sign Up</button>
+    <button class="log-in-btn">Log In</button> 
+    <br>
+    <br>
+    <a class="links" href="/temp-notes/new-note">Start without an account</a>
+  </div>
 
-    <div class="dropdown">
-      <button class="sort-btn">Sort by</button>
-
-      <div class="dropdown-content sort-list-visible"> 
-        <form action="/sort-by-creation" method="POST">
-          <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Creation</button>
-        </form>
-
-        <form action="/sort-by-date" method="POST">
-          <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Date</button>
-        </form>
-
-        <form action="/sort-by-favourite" method="POST">
-          <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Favourite</button>
-        </form>
-
-        <form action="/sort-by-latest" method="POST">
-          <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Latest</button>
-        </form>
-
-        <form action="/sort-by-title" method="POST">
-          <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Title</button>
-        </form>
-      </div>
-    </div>
-
-    <a href="/notes/calendar">Calendar</a>
-  </section>
-
-  <section class="notes">
-    <% notes.each do |note| %>
-      <% if note['note_type'] == 'note' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] && note['user_id'] != 0 %>
-
-    <section class="note">
-      <header>
-        <h2><%= note['title'] %></h2>
-        
-        <% if note['favourite'] == 't' %>
-          <img class="fav-heart" src="/images/favicon-32x32.png" alt="">
-        <% end %>
-      </header>
-
-      <section class="note-controls">
-        <a href="/notes/<%= note['id'] %>/edit"><img class="btn-icon" src="/images/editing.png" alt=""></a>
-        
-        <form action="/notes/<%= note['id'] %>" method="POST">
-          <input type="hidden" name="_method" value="delete">
-          <button class="delete-btn"><img class="btn-icon" src="/images/delete.png" alt=""></button>
-        </form>
-
-        <% if note['favourite'] == 't' %>
-          <form action="/notes/<%= note['id'] %>/nofav" method="POST">
-            <input type="hidden" name="_method" value="put">
-            <button class="fav-btn"><img class="btn-icon" src="/images/no-fav.png" alt=""></button>
-          </form>
-        <% else %>
-          <form action="/notes/<%= note['id'] %>/fav" method="POST">
-            <input type="hidden" name="_method" value="put">
-            <button class="fav-btn"><img class="btn-icon" src="/images/fav.png" alt=""></button>
-          </form>
-        <% end %>
-      </section>
-
-      <p><%= note['date'] %></p>
-      <p class="note-content"><%= note['note'] %></p>
-
-    </section>
-
-    <% elsif note['note_type'] == 'list' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] %>
-      <section class="note">
-        <header>
-          <h2><%= note['title'] %></h2>
-
-          <% if note['favourite'] == 't' %>
-            <img class="fav-heart" src="/images/favicon-32x32.png" alt="">
-          <% end %>
-        </header>
-
-        <section class="note-controls">
-          <a href="/notes/<%= note['id'] %>/edit"><img class="btn-icon" src="/images/editing.png" alt=""></a>
-          
-          <form action="/notes/<%= note['id'] %>" method="POST">
-            <input type="hidden" name="_method" value="delete">
-            <button><img class="btn-icon" src="/images/delete.png" alt=""></button>
-          </form>
-
-          <% if note['favourite'] == 't' %>
-            <form action="/notes/<%= note['id'] %>/nofav" method="POST">
-              <input type="hidden" name="_method" value="put">
-              <button class="fav-btn"><img class="btn-icon" src="/images/no-fav.png" alt=""></button>
-            </form>
-          <% else %>
-            <form action="/notes/<%= note['id'] %>/fav" method="POST">
-              <input type="hidden" name="_method" value="put">
-              <button class="fav-btn"><img class="btn-icon" src="/images/fav.png" alt=""></button>
-            </form>
-          <% end %>
-        </section>
-      
-        <p><%= note['date'] %></p>
-
-        <% if note['note'].include? "\r\n" %>
-          <% note['note'].split("\r\n").each do |item| %>
-            <input class="list-checkbox" type="checkbox">
-            <p class="list-item"><%= item %></p>
-            <br>
-          <% end %>
-        <% end %>
-
-      </section>
-      <% end %>
-    <% end %>
-  </section>
-<% else %>
-  <button class="sign-up-btn">Sign Up</button>
-  <button class="log-in-btn">Log In</button> 
-  <a href="/temp-notes/new-note">New Note</a>
-<% end %>
-
+  <div class="index-div-2">
+    <img class="pencil" src="/images/pencil.png" alt="">
+  </div>
+</section>
 
 <div id="backdrop"></div>
-    <div class="modal" id="sign-up-modal">
-      <div class="modal-content">
-        <h2 class="modal-title">Sign Up</h2>
-  
-        <form action="/users" method="POST">
-          <label for="">First Name: </label>
-          <br>
-          <input type="text" name="first_name">
-          <br>
-          <br>
-          <label for="">Last Name: </label>
-          <br>
-          <input type="text" name="last_name">
-          <br>
-          <br>
-          <label for="">Email: </label>
-          <br>
-          <input type="text" name="email">
-          <br>
-          <br>
-          <label for="">Password: </label>
-          <br>
-          <input type="password" name="password">
-          <br>
-          <div class="modal-actions">
-            <button class="modal-action-btn">Sign Up</button>
-          </div>
-        </form>
 
-        <button class="modal-action-btn btn-passive">Cancel</button>
+<div class="modal" id="sign-up-modal">
+  <div class="modal-content">
+    <h2 class="modal-title">Sign Up</h2>
+
+    <form action="/users" method="POST">
+      <label for="">First Name: </label>
+      <br>
+      <input type="text" name="first_name">
+      <br>
+      <br>
+      <label for="">Last Name: </label>
+      <br>
+      <input type="text" name="last_name">
+      <br>
+      <br>
+      <label for="">Email: </label>
+      <br>
+      <input type="text" name="email">
+      <br>
+      <br>
+      <label for="">Password: </label>
+      <br>
+      <input type="password" name="password">
+      <br>
+      <div class="modal-actions">
+        <button class="modal-action-btn">Sign Up</button>
       </div>
-    </div>
+    </form>
 
-    <div class="modal" id="log-in-modal">
-      <div class="modal-content">
-        <h2 class="modal-title">Log In</h2>
+    <button class="modal-action-btn btn-passive">Cancel</button>
+  </div>
+</div>
 
-        <form action="/sessions" method="POST">
-          <label for="">Email: </label>
-          <br>
-          <input type="text" name="email">
-          <br>
-          <br>
-          <label for="">Password: </label>
-          <br>
-          <input type="password" name="password">
-          <br>
-          <div class="modal-actions">
-            <button class="modal-action-btn">Log In</button>
-          </div>
-        </form>
+<div class="modal" id="log-in-modal">
+  <div class="modal-content">
+    <h2 class="modal-title">Log In</h2>
 
-        <button class="modal-action-btn btn-passive">Cancel</button>
+    <form action="/sessions" method="POST">
+      <label for="">Email: </label>
+      <br>
+      <input type="text" name="email">
+      <br>
+      <br>
+      <label for="">Password: </label>
+      <br>
+      <input type="password" name="password">
+      <br>
+      <div class="modal-actions">
+        <button class="modal-action-btn">Log In</button>
       </div>
-    </div>
+    </form>
+
+    <button class="modal-action-btn btn-passive">Cancel</button>
+  </div>
+</div>
