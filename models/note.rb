@@ -53,3 +53,7 @@ end
 def sort_by_title
   run_sql('SELECT * FROM notes ORDER BY title')
 end
+
+def note_dates
+  run_sql('SELECT date FROM notes ORDER BY id')
+end

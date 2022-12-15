@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'bcrypt'
+require 'gon-sinatra'
 require './db/db'
 
 enable :sessions
+Sinatra::register Gon::Sinatra
 
 # CONTROLLERS
 require './controllers/notes_controller'
