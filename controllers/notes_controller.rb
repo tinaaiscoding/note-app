@@ -23,7 +23,7 @@ post '/notes/new-note' do
   
   create_note(date, title, note, note_type, temp_note, user_id, favourite)
 
-  redirect '/'
+  redirect '/sessions/session-index'
 end
 
 #### LIST ####
@@ -46,7 +46,7 @@ post '/notes/new-list' do
   
   create_note(date, title, note, note_type, temp_note, user_id, favourite)
 
-  redirect '/'
+  redirect '/sessions/session-index'
 end
 
 #### EDIT ####
@@ -70,11 +70,7 @@ put '/notes/:id' do
   erb :'notes/edit', locals: {
     note: note
   }
-  redirect '/'
-end
-
-delete '/notes/:id' do
-  redirect '/'
+  redirect '/sessions/session-index'
 end
 
 #### DELETE ####
@@ -83,7 +79,7 @@ delete '/notes/:id' do
 
   delete_note(id)
 
-  redirect '/'
+  redirect '/sessions/session-index'
 end
 
 #### FAVOURITE ####
@@ -92,7 +88,7 @@ put '/notes/:id/fav' do
 
   favourite_note('t' ,id)
 
-  redirect '/'
+  redirect '/sessions/session-index'
 end
 
 put '/notes/:id/nofav' do
@@ -100,14 +96,14 @@ put '/notes/:id/nofav' do
 
   favourite_note('f' ,id)
 
-  redirect '/'
+  redirect '/sessions/session-index'
 end
 
 #### SORT BY ####
 put '/sort-by-creation' do
   notes = sort_by_creation()
 
-  erb :'/notes/index', locals: {
+  erb :'/sessions/session-index', locals: {
     notes: notes
   }
 end
@@ -115,7 +111,7 @@ end
 put  '/sort-by-date' do
   notes = sort_by_date()
 
-  erb :'/notes/index', locals: {
+  erb :'/sessions/session-index', locals: {
     notes: notes
   }
 end
@@ -123,7 +119,7 @@ end
 put '/sort-by-favourite' do
   notes = sort_by_favourite()
 
-  erb :'/notes/index', locals: {
+  erb :'/sessions/session-index', locals: {
     notes: notes
   }
 end
@@ -131,7 +127,7 @@ end
 put '/sort-by-latest' do
   notes = sort_by_latest()
 
-  erb :'/notes/index', locals: {
+  erb :'/sessions/session-index', locals: {
     notes: notes
   }
 end
@@ -139,7 +135,7 @@ end
 put  '/sort-by-title' do
   notes = sort_by_title()
 
-  erb :'/notes/index', locals: {
+  erb :'/sessions/session-index', locals: {
     notes: notes
   }
 end

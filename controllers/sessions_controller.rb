@@ -16,13 +16,12 @@ post '/sessions' do
   if user && BCrypt::Password.new(user['password_digest']) == password
     session['user_id'] = user['id']
     user_id = session['user_id']
-    redirect :'/sessions/session-index'
     erb :'/sessions/session-index', locals: {
       user_id: user_id,
       notes: notes
     }
   else
-    erb :'/sessions/new'
+    redirect '/'
   end
 end
 

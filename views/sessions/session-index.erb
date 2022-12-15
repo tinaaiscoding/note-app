@@ -1,5 +1,5 @@
 <% if logged_in?%>
-  <h3><%= current_user['first_name'] %>'s Notes</h3>
+  <h1 class="session-heading"><%= current_user['first_name'] %>'s Notes</h1>
   
   <section class="controls">
     <form action="/sessions" method="POST">
@@ -9,7 +9,10 @@
     
     <a href="/notes/new-note">New note</a>
 
-    <div class="dropdown">
+    <a href="/notes/calendar">Calendar</a>
+  </section>
+
+   <section class="dropdown">
       <button class="sort-btn">Sort by</button>
 
       <div class="dropdown-content sort-list-visible"> 
@@ -38,10 +41,7 @@
           <button class="sort-by-item">Title</button>
         </form>
       </div>
-    </div>
-
-    <a href="/notes/calendar">Calendar</a>
-  </section>
+    </section>
 
   <section class="notes">
     <% notes.each do |note| %>
@@ -102,6 +102,10 @@
               <p class="list-item"><%= item %></p>
               <br>
             <% end %>
+          <% else %>
+           <input class="list-checkbox" type="checkbox">
+              <p class="list-item"><%= note['note'] %></p>
+              <br>
           <% end %>
         </div>
         <section class="note-controls">
