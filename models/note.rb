@@ -34,11 +34,19 @@ def favourite_note(boolean, id)
   end
 end
 
-def sort_by_first_created
+def sort_by_creation
   run_sql('SELECT * FROM notes ORDER BY id')
 end
 
-def sort_by_last_created
+def sort_by_date
+  run_sql('SELECT * FROM notes ORDER BY date')
+end
+
+def sort_by_favourite
+  run_sql('SELECT * FROM notes ORDER BY favourite DESC')
+end
+
+def sort_by_latest
   run_sql('SELECT * FROM notes ORDER BY id DESC')
 end
 

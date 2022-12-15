@@ -93,23 +93,37 @@ put '/notes/:id/nofav' do
 end
 
 #### SORT BY ####
-put '/sort-by-first-created' do
-  notes = sort_by_first_created()
+put '/sort-by-creation' do
+  notes = sort_by_creation()
 
   erb :'/notes/index', locals: {
     notes: notes
   }
-
-
 end
 
-put '/sort-by-last-created' do
-  notes =sort_by_last_created()
+put  '/sort-by-date' do
+  "Sort by date not created yet"
+  # notes = sort_by_date()
+
+  # erb :'/notes/index', locals: {
+  #   notes: notes
+  # }
+end
+
+put '/sort-by-favourite' do
+  notes = sort_by_favourite()
 
   erb :'/notes/index', locals: {
     notes: notes
   }
+end
 
+put '/sort-by-latest' do
+  notes = sort_by_latest()
+
+  erb :'/notes/index', locals: {
+    notes: notes
+  }
 end
 
 put  '/sort-by-title' do
@@ -118,5 +132,4 @@ put  '/sort-by-title' do
   erb :'/notes/index', locals: {
     notes: notes
   }
- 
 end

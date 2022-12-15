@@ -15,14 +15,24 @@
       <button class="sort-btn">Sort by</button>
 
       <div class="dropdown-content"> 
-        <form action="/sort-by-first-created" method="POST">
+        <form action="/sort-by-creation" method="POST">
           <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Date created</button>
+          <button class="sort-by-item">Creation</button>
         </form>
 
-        <form action="/sort-by-last-created" method="POST">
+        <form action="/sort-by-date" method="POST">
           <input type="hidden" name="_method" value="put">
-          <button class="sort-by-item">Last created</button>
+          <button class="sort-by-item">Date</button>
+        </form>
+
+        <form action="/sort-by-favourite" method="POST">
+          <input type="hidden" name="_method" value="put">
+          <button class="sort-by-item">Favourite</button>
+        </form>
+
+        <form action="/sort-by-latest" method="POST">
+          <input type="hidden" name="_method" value="put">
+          <button class="sort-by-item">Latest</button>
         </form>
 
         <form action="/sort-by-title" method="POST">
@@ -31,6 +41,8 @@
         </form>
       </div>
     </div>
+
+    <a href="/notes/calendar">Calendar</a>
   </section>
 
   <section class="notes">

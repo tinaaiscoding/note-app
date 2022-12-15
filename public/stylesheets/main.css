@@ -149,7 +149,6 @@ textarea {
   cursor: pointer;
 }
 
-/* Dropdown button on hover & focus */
 .sort-btn:focus {
   background-color: rgb(255, 66, 142);
   color: white;
