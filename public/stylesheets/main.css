@@ -114,12 +114,13 @@ h2 {
 
 .note header {
   background-color: rgb(241 249 255 / 50%);
-  border-bottom: 1px solid rgb(78, 81, 149);
+  border-bottom: 1px solid rgb(188 188 205);
   align-items: center;
   display: flex;
   height: 68px;
   justify-content: space-between;
   padding: 0 1rem;
+  position: relative;
   width: 100%;
 }
 
@@ -129,13 +130,22 @@ h2 {
   text-overflow: ellipsis;
 }
 
+.note-date {
+  color: rgb(179, 181, 210);
+  font-size: 0.6rem;
+  left: 17px;
+  position: absolute;
+  top: 5px;
+}
+
 .note-content {
   white-space: pre-wrap;
 }
 
 
 .note-controls {
-  border-top: 1px solid rgb(78, 81, 149);
+  background-color: rgb(241 249 255 / 50%);
+  border-top: 1px solid rgb(188 188 205);
   bottom: 0;
   display: flex;
   gap: 0.5rem;
@@ -145,7 +155,7 @@ h2 {
 }
 
 .note-text {
-  height: 175px;
+  height: 194px;
   padding: 10px 14px;
 }
 

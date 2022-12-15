@@ -49,14 +49,13 @@
 
     <section class="note">
       <header>
+        <p class="note-date"><%= note['date'] %></p>
         <h2><%= note['title'] %></h2>
         
         <% if note['favourite'] == 't' %>
           <img class="fav-heart" src="/images/favicon-32x32.png" alt="">
         <% end %>
       </header>
-
-      <p><%= note['date'] %></p>
 
       <div class="note-text">
         <p class="note-content"><%= note['note'] %></p>
@@ -87,6 +86,7 @@
     <% elsif note['note_type'] == 'list' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] %>
       <section class="note">
         <header>
+          <p class="note-date"><%= note['date'] %></p>
           <h2><%= note['title'] %></h2>
 
           <% if note['favourite'] == 't' %>
@@ -94,7 +94,6 @@
           <% end %>
         </header>
       
-        <p><%= note['date'] %></p>
         
         <div class="note-text">
           <% if note['note'].include? "\r\n" %>
