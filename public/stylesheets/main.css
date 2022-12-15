@@ -1,6 +1,8 @@
 /****************** BODY LAYOUT *******************/
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -164,6 +166,9 @@ textarea {
   text-align: center;
   width: 106px;
   z-index: 1;
+
+  top: 28px;
+  left: -24px;
 }
 
 .dropdown-content button {
@@ -192,5 +197,5 @@ textarea {
 .completed-item {
   color: rgb(174, 174, 208);
   text-decoration: line-through;
-  text-decoration-color: rgb(112 112 143);
+  text-decoration-color: rgb(48 48 131 / 37%);
 }

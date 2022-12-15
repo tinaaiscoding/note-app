@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.calendar-body{
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+  min-height: 100vh;
+  background: #ffffff;
+  color: rgb(6, 6, 78);;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+  height: 600px;
+  width: 90%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 10px 9px 15px 10px rgb(0 0 0 / 12%);
+}
+
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+
+header .icons{
+  display: flex;
+}
+
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: rgb(107, 107, 165);
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+
+.icons span:last-child{
+  margin-right: -10px;
+}
+
+header .icons span:hover{
+  background: #f2f2f2;
+}
+
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.calendar{
+  padding: 20px;
+}
+
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  height: 70px;
+  text-align: right;
+}
+
+.calendar .days{
+  margin-bottom: 20px;
+}
+
+.calendar .days div {
+  color: rgb(6, 6, 78);
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+  height: 70px;
+  text-align: right;
+  border: 1px solid rgb(255, 240, 248);
+}
+
+.calendar .days li {
+  color: rgb(6, 6, 78);
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+  height: fit-content;
+  left: 143px;
+  top: -22px;
+}
+
+.calendar li {
+  color: rgb(6, 6, 78);
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+  height: 70px;
+}
+
+.calendar .weeks li{
+  text-align: center;
+  font-weight: 700;
+  line-height: 70px;
+  cursor: default;
+  border: 1px solid rgb(242, 242, 255);
+}
+
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+
+.days li.inactive{
+  color: rgb(217, 217, 237);
+}
+
+.days li.active{
+  color: #fff;
+}
+
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 64%;
+  top: 52%;
+  height: 30px;
+  width: 30px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.days li.active::before{
+  background: #fcbcced6;
+}
+
+.days li:not(.active):hover::before{
+  background: rgb(241, 241, 255);
+}
