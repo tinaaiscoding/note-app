@@ -1,3 +1,4 @@
+// SORY BY FEATURE
 const sortBtn = document.querySelector('.sort-btn');
 const dropdownContent = document.querySelector('.dropdown-content');
 

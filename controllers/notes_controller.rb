@@ -40,6 +40,10 @@ post '/notes/new-list' do
   user_id = session['user_id'].to_i
   favourite = params['favourite']
 
+  params['note'].split('\r').each do |item|
+    p item
+  end
+  
   create_note(date, title, note, note_type, temp_note, user_id, favourite)
 
   redirect '/'

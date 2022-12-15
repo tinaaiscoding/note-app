@@ -84,7 +84,7 @@
 
     </section>
 
-    <% elsif  note['note_type'] == 'list' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] %>
+    <% elsif note['note_type'] == 'list' && note['temp_note'] == 'f' && note['user_id'] == session['user_id'] %>
       <section class="note">
         <header>
           <h2><%= note['title'] %></h2>
@@ -116,7 +116,16 @@
         </section>
       
         <p><%= note['date'] %></p>
-        <input type="checkbox" name="" id=""><p class="note-content"><%= note['note'] %></p>
+
+        <% if note['note'].include? "\r\n" %>
+          <% note['note'].split("\r\n").each do |item| %>
+            <input type="checkbox"> <%= item %>
+            <br>
+          <% end %>
+        <% else %>
+        <p>didnt work</p>
+        <% end %>
+
       </section>
       <% end %>
     <% end %>
