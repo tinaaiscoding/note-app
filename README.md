@@ -33,7 +33,7 @@ Create and editing is easily accessible. Dated notes will appear in the calendar
 - Refactor code!!!
 
 ## 😮‍💨 Lessons learnt 
-- Don't spend to long on a problem if you're stuck. Asking for help earlier on can save you lots of time!
+- Don't spend too long on a problem if you're stuck. Asking for help earlier on can save you lots of time!
 
  ## :white_check_mark: Future features
  - Tailwind CSS framework
